@@ -5,7 +5,6 @@
 ```
 |
 +- deploy (git cloned from git@github.com:datahq/deploy)
-+- assembler (git cloned from git@github.com:datahq/assembler)
 +- auth (git cloned from git@github.com:datahq/auth)
 +- plans (git cloned from git@github.com:datahq/plans)
 +- resolver (git cloned from git@github.com:datahq/resolver)
@@ -14,8 +13,8 @@
    +- ...
    +- events_repo (git cloned from git@github.com:datahq/events)
    +- events (symlink to events_repo/events)
+   +- assembler_repo (git cloned from git@github.com:datahq/assembler)
    +- planner_repo (git cloned from git@github.com:datahq/planner)
-   +- planner (symlink to planner_repo/planner)
 +- bitstore (git cloned from git@github.com:datahq/bitstore)
 +- frontend (git cloned from git@github.com:datahq/frontend)
 +- metastore (git cloned from git@github.com:datahq/metastore)
@@ -68,7 +67,6 @@ CONTAINER ID        IMAGE                                                 COMMAN
 2a9b2664aeda        deploy_specstore                                      "/bin/sh -c $APP_P..."   3 hours ago         Up 3 hours          0.0.0.0:32999->8000/tcp                 deploy_specstore_1
 9c30e7d263cc        deploy_resolver                                       "/bin/sh -c $APP_P..."   3 hours ago         Up 3 hours          0.0.0.0:32998->8000/tcp                 deploy_resolver_1
 f141b6aff71b        deploy_rawstore                                       "/bin/sh -c $APP_P..."   3 hours ago         Up 3 hours          0.0.0.0:32997->8000/tcp                 deploy_rawstore_1
-cfcffab13f0f        deploy_assembler                                      "/app/startup.sh"        3 hours ago         Up 3 hours          5000/tcp                                deploy_assembler_1
 95d95451517e        deploy_metastore                                      "/bin/sh -c $APP_P..."   3 hours ago         Up 3 hours          0.0.0.0:32995->8000/tcp                 deploy_metastore_1
 b20c7459e0ea        deploy_auth                                           "/bin/sh -c $APP_P..."   3 hours ago         Up 3 hours          0.0.0.0:32996->8000/tcp                 deploy_auth_1
 17907c0d88a2        deploy_frontend                                       "/bin/sh -c 'npm s..."   3 hours ago         Up 3 hours          0.0.0.0:32994->4000/tcp                 deploy_frontend_1
@@ -81,5 +79,5 @@ $ docker attach <container-id> &
 
 ## OR as a one liner:
 
-$ docker ps --format {{.ID}} --filter name=assembler | xargs docker attach &
+$ docker ps --format {{.ID}} --filter name=specstore | xargs docker attach &
 ```
